@@ -1,8 +1,8 @@
 specVersion: 0.0.2
-description: PNS 
+description: PNS
 repository: https://github.com/hzy1919/example-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Domains
@@ -18,11 +18,11 @@ dataSources:
         - Domains
       abis:
         - name: Registrar
-          file: ./abis/Registrar.abi
+          file: Domains/abis/Registrar.abi
       eventHandlers:
         - event: NameRegistered(string,indexed bytes32,indexed address,uint256,uint256)
           handler: handleNameRegistered
-      file: ./src/mapping-Registrar.ts
+      file: Domains/Domains.wasm
   - kind: ethereum/contract
     name: Subdomains
     network: mainnet
@@ -37,8 +37,8 @@ dataSources:
         - Subdomains
       abis:
         - name: ENS
-          file: ./abis/ENS.abi
+          file: Subdomains/abis/ENS.abi
       eventHandlers:
         - event: NewSubnameOwner(indexed bytes32,string,address)
           handler: handleNewSubnameOwner
-      file: ./src/mapping-ENS.ts
+      file: Subdomains/Subdomains.wasm

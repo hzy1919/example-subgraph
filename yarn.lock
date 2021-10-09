@@ -59,6 +59,11 @@
   dependencies:
     assemblyscript "0.19.10"
 
+"@openzeppelin/contracts@^4.3.2":
+  version "4.3.2"
+  resolved "https://registry.nlark.com/@openzeppelin/contracts/download/@openzeppelin/contracts-4.3.2.tgz#ff80affd6d352dbe1bbc5b4e1833c41afd6283b6"
+  integrity sha1-/4Cv/W01Lb4bvFtOGDPEGv1ig7Y=
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -3629,6 +3634,11 @@ onetime@^5.1.0:
   integrity sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==
   dependencies:
     mimic-fn "^2.1.0"
+
+openzeppelin-solidity@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.nlark.com/openzeppelin-solidity/download/openzeppelin-solidity-4.3.2.tgz#30ab3cb813166a070b8e46d7ac719aefa4571921"
+  integrity sha1-MKs8uBMWagcLjkbXrHGa76RXGSE=
 
 optimist@~0.3.5:
   version "0.3.7"
