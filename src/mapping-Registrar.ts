@@ -42,19 +42,19 @@
 // // Import entity types generated from the GraphQL schema
 // import { Domains, Subdomains } from './types/schema'
 
-import { NameRegistered as NameRegisteredEvent } from '../generated/Domains/Registrar'
-import { Domains } from '../generated/schema'
+import { NameRegistered as NameRegisteredEvent } from '../generated/Domain/Registrar'
+import { Domain } from '../generated/schema'
 
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
   let id = event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  let domain = Domains.load(id)
+  let domain = Domain.load(id)
   if (domain == null) {
-    domain = new Domains(id)
+    domain = new Domain(id)
   }
-  domain.name = event.params.name.toString()
-  domain.label = event.params.label.toString()
+  domain.name = event.params.name
+  domain.labelHash = event.params.label
   domain.owner = event.params.owner
-  domain.expires = event.params.expires.toString()
+  domain.expires = event.params.expires
   domain.save()
 }
