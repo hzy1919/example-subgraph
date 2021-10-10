@@ -1,3 +1,3 @@
-# Example Subgraph
+# PNS(Polkadot Name System) Subgraph
 
-An example to help you get started with The Graph. For more information see the docs on https://thegraph.com/docs/.
+A subgraph to get PNS data from Etheruem compatible blockchain(like Etheruem,Moonbeam.) with The Graph . 
