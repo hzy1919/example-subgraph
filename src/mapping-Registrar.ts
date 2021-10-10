@@ -47,13 +47,12 @@ import { Domains } from '../generated/schema'
 
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
-  
-  let name = event.params.name.toString()
-  let domain = Domains.load(name)
+  let id = event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  let domain = Domains.load(id)
   if (domain == null) {
-    domain = new Domains(name)
+    domain = new Domains(id)
   }
-  domain.name = name
+  domain.name = event.params.name.toString()
   domain.label = event.params.label.toString()
   domain.owner = event.params.owner
   domain.expires = event.params.expires.toString()

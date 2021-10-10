@@ -23,12 +23,12 @@ import { NewSubnameOwner as NewSubnameOwnerEvent } from '../generated/Subdomains
 import { Subdomains } from '../generated/schema'
 
 export function handleNewSubnameOwner(event: NewSubnameOwnerEvent): void {
-  let node = event.params.node.toString()
-  let subdomain = Subdomains.load(node)
+  let id = event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  let subdomain = Subdomains.load(id)
   if (subdomain == null) {
-    subdomain = new Subdomains(node)
+    subdomain = new Subdomains(id)
   }
-  subdomain.node = node
+  subdomain.node = event.params.node.toString()
   subdomain.label = event.params.label.toString()
   subdomain.owner = event.params.owner
   subdomain.save()
